@@ -1,0 +1,31 @@
+# NammaMart assignment: add these lines to the project's .gitignore
+
+# ---- Never commit ----
+# Warehouse files and run scratch space (rebuilt by the DAGs)
+include/warehouse_*.duckdb
+include/warehouse_*.duckdb.wal
+include/tmp/
+# Quarantine files hold rows exactly as received, including unmasked customer PII
+include/quarantine/
+# Local secrets
+.env
+# Python and OS clutter
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# ---- Must stay in the repo (submission checklist) ----
+# Re-included explicitly so a broader rule (e.g. *.csv) can never drop them.
+!dags/nammamart_etl_deb.py
+!dags/nammamart_elt_deb.py
+!include/nammamart/*.py
+!include/sql/elt/*.sql
+!include/data/nammamart/*.csv
+!SUBMISSION.md
+!docs/business_questions.md
+!docs/data_profile.md
+!docs/data_issues_log.csv
+!docs/observability_results.md
+!docs/screenshots/
+!scripts/
+!requirements.txt

@@ -1,0 +1,243 @@
+file,source_row,row_key,column,value_received,problem,dimension,rule_code,severity,action
+stores.csv,7,S07,zone,,zone is empty (loaded as 'Unassigned'),Completeness,st_zone_missing,Warning,load + log warning
+stores.csv,12,S12,capacity_orders_per_day,0,capacity_orders_per_day is missing or <= 0,Accuracy,st_capacity_invalid,Warning,load + log warning
+products.csv,19,P0019,cost_price,264.0,cost_price > mrp (negative margin on every sale),Accuracy,pr_cost_above_mrp,Warning,load + log warning
+products.csv,51,P0051,category,,category is empty (loaded as 'Uncategorised'),Completeness,pr_category_missing,Warning,load + log warning
+products.csv,60,P0060,category,,category is empty (loaded as 'Uncategorised'),Completeness,pr_category_missing,Warning,load + log warning
+products.csv,68,P0068,category,,category is empty (loaded as 'Uncategorised'),Completeness,pr_category_missing,Warning,load + log warning
+products.csv,73,P0073,cost_price,334.8,cost_price > mrp (negative margin on every sale),Accuracy,pr_cost_above_mrp,Warning,load + log warning
+products.csv,74,P0074,cost_price,420.0,cost_price > mrp (negative margin on every sale),Accuracy,pr_cost_above_mrp,Warning,load + log warning
+products.csv,109,P0109,mrp,-203.0,mrp is missing or <= 0,Accuracy,pr_mrp_invalid,Critical,quarantine
+products.csv,109,P0109,cost_price,162.5,cost_price > mrp (negative margin on every sale),Accuracy,pr_cost_above_mrp,Warning,load + log warning
+products.csv,117,P0117,cost_price,92.4,cost_price > mrp (negative margin on every sale),Accuracy,pr_cost_above_mrp,Warning,load + log warning
+products.csv,151,P0030,product_id,P0030,product_id appears more than once (the '(old)' row is rejected),Uniqueness,pr_product_id_duplicate,Critical,quarantine
+products.csv,152,P0140,product_id,P0140,product_id appears more than once (the '(old)' row is rejected),Uniqueness,pr_product_id_duplicate,Critical,quarantine
+customers.csv,1,C00199,loyalty_tier,SILVER,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,3,C00355,city,,city is empty,Completeness,cu_city_missing,Warning,load + log warning
+customers.csv,16,C00337,email,N/A,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,23,C00307,email,ar*** (no @),email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,37,C00132,pincode,5600XX,pincode is not a valid 6-digit PIN,Validity,cu_pincode_invalid,Warning,load + log warning
+customers.csv,39,C00171,loyalty_tier,SILVER,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,42,C00133,loyalty_tier,BRONZE,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,45,C00103,customer_id,C00103,customer_id appears more than once (first row kept),Uniqueness,cu_customer_id_duplicate,Critical,quarantine
+customers.csv,52,C00032,loyalty_tier,bronze,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,55,C00395,pincode,000000,pincode is not a valid 6-digit PIN,Validity,cu_pincode_invalid,Warning,load + log warning
+customers.csv,59,C00151,phone,99*****12,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,78,C00063,email,pr***@example,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,80,C00045,email,N/A,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,81,C00363,email,la*** (no @),email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,85,C00400,signup_date,2027-01-05,"signup_date is missing, unparseable or after the export snapshot",Timeliness,cu_signup_date_future,Critical,quarantine
+customers.csv,91,C00310,email,ki***@example,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,98,C00031,loyalty_tier,bronze,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,103,C00196,loyalty_tier,bronze,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,108,C00083,pincode,5600XX,pincode is not a valid 6-digit PIN,Validity,cu_pincode_invalid,Warning,load + log warning
+customers.csv,116,C00240,phone,90****98,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,132,C00342,pincode,000000,pincode is not a valid 6-digit PIN,Validity,cu_pincode_invalid,Warning,load + log warning
+customers.csv,140,C00095,phone,99*****12,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,150,C00166,pincode,5600XX,pincode is not a valid 6-digit PIN,Validity,cu_pincode_invalid,Warning,load + log warning
+customers.csv,152,C00357,phone,93*****12,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,168,C00136,loyalty_tier,BRONZE,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,171,C00130,phone,99*****12,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,196,C00398,signup_date,2026-11-12,"signup_date is missing, unparseable or after the export snapshot",Timeliness,cu_signup_date_future,Critical,quarantine
+customers.csv,198,C00327,email,N/A,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,201,C00394,city,,city is empty,Completeness,cu_city_missing,Warning,load + log warning
+customers.csv,214,C00252,customer_id,C00252,customer_id appears more than once (first row kept),Uniqueness,cu_customer_id_duplicate,Critical,quarantine
+customers.csv,233,C00290,phone,98***41,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,238,C00038,signup_date,2026-12-20,"signup_date is missing, unparseable or after the export snapshot",Timeliness,cu_signup_date_future,Critical,quarantine
+customers.csv,239,C00112,email,la***@example,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,245,C00226,customer_id,C00226,customer_id appears more than once (first row kept),Uniqueness,cu_customer_id_duplicate,Critical,quarantine
+customers.csv,249,C00339,phone,98*****12,phone is not a 10-digit Indian mobile number,Validity,cu_phone_invalid,Warning,load + log warning
+customers.csv,265,C00036,customer_id,C00036,customer_id appears more than once (first row kept),Uniqueness,cu_customer_id_duplicate,Critical,quarantine
+customers.csv,275,C00233,city,,city is empty,Completeness,cu_city_missing,Warning,load + log warning
+customers.csv,292,C00142,city,,city is empty,Completeness,cu_city_missing,Warning,load + log warning
+customers.csv,309,C00328,city,,city is empty,Completeness,cu_city_missing,Warning,load + log warning
+customers.csv,329,C00092,loyalty_tier,BRONZE,loyalty_tier casing differs (standardised),Consistency,cu_loyalty_tier_casing,Warning,load + log warning
+customers.csv,336,C00193,email,N/A,email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,343,C00392,email,po*** (no @),email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,364,C00062,email,ri*** (no @),email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+customers.csv,369,C00219,city,,city is empty,Completeness,cu_city_missing,Warning,load + log warning
+customers.csv,381,C00313,customer_id,C00313,customer_id appears more than once (first row kept),Uniqueness,cu_customer_id_duplicate,Critical,quarantine
+customers.csv,389,C00067,email,ma*** (no @),email is missing or not a valid address,Validity,cu_email_invalid,Warning,load + log warning
+orders.csv,35,ORD002255,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,47,ORD001812,payment_mode,Cashh,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,65,ORD002103,discount_pct,250,discount_pct missing or outside 0-100,Validity,or_discount_invalid,Critical,quarantine
+orders.csv,65,ORD002103,order_amount,492.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,115,ORD001295,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,126,ORD000469,quantity,0,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,139,ORD002119,order_ts,2027-01-01 09:00:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,142,ORD001066,order_status,delivered,order_status casing differs (standardised),Consistency,or_status_casing,Warning,load + log warning
+orders.csv,151,ORD000039,customer_id,C00038,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,161,ORD001554,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,186,ORD001409,customer_id,C00038,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,194,ORD002167,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,206,ORD000986,product_id,P9455,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,250,ORD000701,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,252,ORD001800,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,270,ORD001462,order_id,ORD001462,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,272,ORD000403,order_ts,N/A,order_ts missing or not YYYY-MM-DD HH:MM:SS,Validity,or_order_ts_invalid,Critical,quarantine
+orders.csv,274,ORD001037,delivery_minutes,480,delivery_minutes <= 0 or above 120,Accuracy,or_delivery_implausible,Critical,quarantine
+orders.csv,287,ORD001693,order_ts,2026-10-21 10:15:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,304,ORD001058,product_id,P9212,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,306,ORD002061,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,311,ORD002305,order_amount,6757.5,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,341,ORD000331,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,362,ORD001089,order_ts,2026-10-21 10:15:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,391,ORD000957,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,423,ORD000023,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,425,ORD001121,order_ts,2026-11-02 18:40:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,479,ORD002004,order_amount,6720.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,510,ORD002101,delivery_minutes,480,delivery_minutes <= 0 or above 120,Accuracy,or_delivery_implausible,Critical,quarantine
+orders.csv,512,ORD001610,order_ts,2026-13-05 11:00:00,order_ts missing or not YYYY-MM-DD HH:MM:SS,Validity,or_order_ts_invalid,Critical,quarantine
+orders.csv,549,ORD000997,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,562,ORD001414,payment_mode,Cashh,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,576,ORD002351,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,587,ORD002344,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,589,ORD001685,product_id,P9816,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,595,ORD000352,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,625,ORD000455,delivery_minutes,1440,delivery_minutes <= 0 or above 120,Accuracy,or_delivery_implausible,Critical,quarantine
+orders.csv,634,ORD000580,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,651,ORD000731,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,715,ORD001277,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,734,ORD001799,store_id,S99,store_id not in the clean store master,Consistency,or_store_unknown,Critical,quarantine
+orders.csv,741,ORD001046,store_id,S17,store_id not in the clean store master,Consistency,or_store_unknown,Critical,quarantine
+orders.csv,746,ORD000500,order_status,Pending??,order_status not in DELIVERED/CANCELLED/RETURNED,Validity,or_status_invalid,Critical,quarantine
+orders.csv,770,ORD000845,order_amount,4712.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,800,ORD001296,quantity,-2,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,807,ORD001955,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,811,ORD000964,order_amount,8370.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,815,ORD001459,quantity,-3,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,820,ORD002019,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,824,ORD000534,order_ts,2026-13-05 11:00:00,order_ts missing or not YYYY-MM-DD HH:MM:SS,Validity,or_order_ts_invalid,Critical,quarantine
+orders.csv,830,ORD001492,store_id,S17,store_id not in the clean store master,Consistency,or_store_unknown,Critical,quarantine
+orders.csv,859,ORD000867,quantity,-1,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,885,ORD000159,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,898,ORD000362,order_ts,,order_ts missing or not YYYY-MM-DD HH:MM:SS,Validity,or_order_ts_invalid,Critical,quarantine
+orders.csv,939,ORD002262,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,965,ORD002371,customer_id,C00398,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,969,ORD002149,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,982,ORD001360,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,988,ORD002367,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1010,ORD001275,store_id,S17,store_id not in the clean store master,Consistency,or_store_unknown,Critical,quarantine
+orders.csv,1020,ORD000462,quantity,-3,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,1026,ORD002298,order_amount,305.1,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1026,ORD002298,customer_id,C00398,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1028,ORD002031,order_amount,3210.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1031,ORD002360,quantity,0,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,1089,ORD000326,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,1099,ORD002012,order_ts,31/09/2026 10:00,order_ts missing or not YYYY-MM-DD HH:MM:SS,Validity,or_order_ts_invalid,Critical,quarantine
+orders.csv,1116,ORD001748,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1120,ORD001441,order_id,ORD001441,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,1121,ORD001765,order_ts,2027-01-01 09:00:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,1122,ORD000616,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1191,ORD001332,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1197,ORD001724,quantity,0,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,1217,ORD000070,product_id,P9893,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1284,ORD000801,order_amount,5467.5,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1317,ORD001692,order_id,ORD001692,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,1341,ORD001918,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1346,ORD000871,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1388,ORD002156,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1398,ORD000583,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1428,ORD000099,quantity,0,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,1438,ORD000880,order_amount,517.65,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1439,ORD000151,customer_id,C00398,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1460,ORD000790,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1462,ORD002023,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1472,ORD001364,payment_mode,CARD,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,1482,ORD000399,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1523,ORD001515,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,1545,ORD000789,product_id,P9989,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1576,ORD001355,customer_id,C00398,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1582,ORD000764,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1586,ORD002035,customer_id,C00038,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1596,ORD002219,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1606,ORD001965,order_ts,2026-11-02 18:40:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,1639,ORD000596,product_id,P9784,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1640,ORD001274,order_amount,110.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1640,ORD001274,customer_id,C00398,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1641,ORD002129,order_id,ORD002129,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,1642,ORD001928,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1643,ORD000677,order_amount,394.2,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1651,ORD001034,customer_id,C00038,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1716,ORD002223,order_amount,36.58,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1719,ORD002128,order_amount,265.5,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1747,ORD001624,order_amount,9576.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1813,ORD001532,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1820,ORD001124,quantity,-1,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,1822,ORD000022,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,1825,ORD002229,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,1833,ORD000134,product_id,P9822,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1840,ORD002096,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1880,ORD000153,order_status,delivered,order_status casing differs (standardised),Consistency,or_status_casing,Warning,load + log warning
+orders.csv,1902,ORD002244,order_amount,108.3,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1913,ORD002008,customer_id,C00400,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders.csv,1926,ORD001755,order_amount,730.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,1953,ORD000965,product_id,P9399,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,1954,ORD002126,store_id,S00,store_id not in the clean store master,Consistency,or_store_unknown,Critical,quarantine
+orders.csv,1981,ORD002179,product_id,P9761,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,2002,ORD000433,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,2004,ORD000446,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+orders.csv,2026,ORD001970,order_status,Pending??,order_status not in DELIVERED/CANCELLED/RETURNED,Validity,or_status_invalid,Critical,quarantine
+orders.csv,2034,ORD000878,delivery_minutes,,DELIVERED order has no delivery_minutes,Completeness,or_delivery_missing,Critical,quarantine
+orders.csv,2058,ORD001239,order_id,ORD001239,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2066,ORD001725,order_ts,2027-01-01 09:00:00,order_ts is after the export snapshot,Timeliness,or_order_ts_future,Critical,quarantine
+orders.csv,2074,ORD001104,delivery_minutes,900,delivery_minutes <= 0 or above 120,Accuracy,or_delivery_implausible,Critical,quarantine
+orders.csv,2087,ORD000783,order_id,ORD000783,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2113,ORD000946,order_ts,31/09/2026 10:00,order_ts missing or not YYYY-MM-DD HH:MM:SS,Validity,or_order_ts_invalid,Critical,quarantine
+orders.csv,2115,ORD001640,payment_mode,cod,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,2128,ORD001637,order_status,Pending??,order_status not in DELIVERED/CANCELLED/RETURNED,Validity,or_status_invalid,Critical,quarantine
+orders.csv,2130,ORD001468,discount_pct,120,discount_pct missing or outside 0-100,Validity,or_discount_invalid,Critical,quarantine
+orders.csv,2130,ORD001468,order_amount,547.2,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,2145,ORD000539,order_id,ORD000539,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2149,ORD001373,customer_id,,customer_id is empty,Completeness,or_customer_id_missing,Critical,quarantine
+orders.csv,2181,ORD001434,order_id,ORD001434,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2203,ORD001326,order_id,ORD001326,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2212,ORD001549,order_id,ORD001549,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2278,ORD000020,delivery_minutes,900,delivery_minutes <= 0 or above 120,Accuracy,or_delivery_implausible,Critical,quarantine
+orders.csv,2291,ORD001237,discount_pct,150,discount_pct missing or outside 0-100,Validity,or_discount_invalid,Critical,quarantine
+orders.csv,2291,ORD001237,order_amount,2408.0,order_amount != quantity x unit_price x (1 - discount/100),Accuracy,or_amount_mismatch,Critical,quarantine
+orders.csv,2327,ORD001870,order_id,ORD001870,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2364,ORD001384,quantity,-1,quantity is missing or <= 0,Accuracy,or_quantity_invalid,Critical,quarantine
+orders.csv,2367,ORD000424,delivery_minutes,480,delivery_minutes <= 0 or above 120,Accuracy,or_delivery_implausible,Critical,quarantine
+orders.csv,2381,ORD000934,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders.csv,2394,ORD001110,order_id,ORD001110,order_id repeated in the same file (first row kept),Uniqueness,or_order_id_duplicate,Critical,quarantine
+orders.csv,2403,ORD000691,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,or_payment_mode_nonstandard,Warning,load + log warning
+orders_2026-10-01_increment.csv,115,ORD002486,customer_id,C00398,customer_id not in the clean customer master,Consistency,or_customer_unknown,Critical,quarantine
+orders_2026-10-01_increment.csv,126,ORD002465,product_id,P0109,product_id not in the clean product master,Consistency,or_product_unknown,Critical,quarantine
+payments.csv,70,PAY0001568,amount_paid,-43.05,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,95,PAY0002188,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,145,PAY0000396,payment_ts,2026-11-02 18:40:52,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,187,PAY0002219,order_id,ORD970544,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,308,PAY0000127,payment_ts,2027-01-01 09:01:37,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,345,PAY0002175,amount_paid,-188.7,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,372,PAY0000116,amount_paid,0.0,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,410,PAY0001908,payment_ts,2027-01-01 09:01:46,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,433,PAY0000751,amount_paid,-1593.0,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,528,PAY0000944,amount_paid,-1279.65,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,608,PAY0001850,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,652,PAY0000791,amount_paid,-500.65,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,688,PAY0002220,order_id,ORD968496,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,821,PAY0001954,payment_mode,cod,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,860,PAY0001111,amount_paid,0.0,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,895,PAY0000817,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,909,PAY0001359,payment_mode,CARD,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,965,PAY0002223,order_id,ORD988106,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,987,PAY0001037,payment_ts,2027-01-01 09:01:02,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,1031,PAY0000509,payment_id,PAY0000509,payment_id repeated (first row kept),Uniqueness,pa_payment_id_duplicate,Critical,quarantine
+payments.csv,1148,PAY0002221,order_id,ORD941071,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,1261,PAY0000337,payment_ts,2026-10-21 10:15:38,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,1262,PAY0001322,amount_paid,0.0,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,1319,PAY0002208,payment_mode,upi,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,1446,PAY0002224,order_id,ORD981600,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,1453,PAY0000522,payment_mode,Cashh,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,1624,PAY0000044,payment_mode,Cashh,payment_mode spelling/casing differs (standardised),Consistency,pa_payment_mode_nonstandard,Warning,load + log warning
+payments.csv,1639,PAY0001488,payment_ts,2026-11-02 18:41:31,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,1781,PAY0000954,amount_paid,0.0,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,1789,PAY0002218,order_id,ORD997176,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,1850,PAY0000267,payment_ts,2026-10-21 10:16:40,payment_ts is after the export snapshot,Timeliness,pa_payment_ts_future,Critical,quarantine
+payments.csv,1854,PAY0001651,payment_id,PAY0001651,payment_id repeated (first row kept),Uniqueness,pa_payment_id_duplicate,Critical,quarantine
+payments.csv,1876,PAY0002000,payment_id,PAY0002000,payment_id repeated (first row kept),Uniqueness,pa_payment_id_duplicate,Critical,quarantine
+payments.csv,1973,PAY0002222,order_id,ORD953136,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
+payments.csv,2118,PAY0000755,payment_id,PAY0000755,payment_id repeated (first row kept),Uniqueness,pa_payment_id_duplicate,Critical,quarantine
+payments.csv,2172,PAY0000737,amount_paid,-394.0,"amount_paid missing, negative, or zero on a SUCCESS payment",Accuracy,pa_amount_invalid,Critical,quarantine
+payments.csv,2215,PAY0002217,order_id,ORD966342,order_id never received in any orders file,Consistency,pa_order_unknown,Critical,quarantine
