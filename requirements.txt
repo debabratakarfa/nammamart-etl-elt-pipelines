@@ -1,4 +1,3 @@
-# Add any line missing from the project's requirements.txt, then: astro dev restart
 duckdb>=1.1
 pandas>=2.0
 # Only for the helper scripts (docs generation), not needed by the DAGs:

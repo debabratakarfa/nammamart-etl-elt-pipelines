@@ -1,37 +1,34 @@
 # NammaMart ETL & ELT pipelines (Deb)
 
-Drop-in files for the class Astro project. Nothing in the trainer's
-`meridian_pipeline.py` is touched.
-
-## 1. Copy into your cloned project
+A standalone Astro project: clone it and `astro dev start`. Built and tested on
+Astro Runtime 3.3-2 (Airflow 3.3.0, Python 3.14, pandas 2.3.3, DuckDB 1.5.6).
 
 ```
-dags/nammamart_etl_deb.py
-dags/nammamart_elt_deb.py
+Dockerfile, packages.txt, requirements.txt, airflow_settings.yaml, .astro/   Astro scaffolding
+dags/nammamart_etl_deb.py, dags/nammamart_elt_deb.py                          the two DAGs
 include/nammamart/          (Python package: config, checks, validate, etl, elt, ...)
 include/sql/elt/            (all ELT SQL)
 include/data/nammamart/     (the six CSVs, unedited)
 scripts/                    (local runner, profiling, parity check, experiments)
-docs/                       (profile, issues log, business questions, experiment results)
+docs/                       (profile, issues log, business questions, experiment results, screenshots)
 SUBMISSION.md
 ```
 
-Then:
+`.gitignore` keeps the warehouse, quarantine files (raw customer PII), run scratch space and `.env` out of git.
+To use another name, set `LEARNER_NAME` in `include/nammamart/config.py` and rename the two DAG files to match.
 
-1. Merge `requirements.nammamart.txt` into `requirements.txt`. DuckDB and pandas are probably already there for the demo.
-2. Merge `.gitignore.nammamart` into `.gitignore`. It keeps the warehouse, quarantine (raw PII) and secrets out of git.
-3. To use another name, set `LEARNER_NAME` in `include/nammamart/config.py` and rename the two DAG files to match.
-
-## 2. Run in Airflow
+## 1. Run in Airflow
 
 ```bash
-astro dev restart
+astro dev start
 astro dev run dags list-import-errors        # should be empty
 astro dev run dags test nammamart_etl_deb
 astro dev run dags test nammamart_elt_deb
 ```
 
-UI: http://localhost:8080 (admin / admin). Both DAGs are scheduled for `0 9 * * 1-6` in Asia/Kolkata.
+UI: the URL `astro dev start` prints (http://localhost:8080 by default). If port 8080 or 5432 is taken by
+another project, run `astro config set webserver.port 8081` and `astro config set postgres.port 5433` first.
+Both DAGs are scheduled for `0 9 * * 1-6` in Asia/Kolkata (03:30 UTC) and start paused; unpause them in the UI.
 
 The warehouse is `include/warehouse_deb.duckdb`. Query it with VS Code SQLTools, or:
 
@@ -57,7 +54,7 @@ Both DAGs pick up `orders_*_increment.csv` automatically. To see the increment a
 astro dev run variables set SLACK_WEBHOOK_URL https://hooks.slack.com/services/XXX
 ```
 
-## 3. Run without Airflow (same task code)
+## 2. Run without Airflow (same task code)
 
 ```bash
 python scripts/run_local.py both            # ETL then ELT

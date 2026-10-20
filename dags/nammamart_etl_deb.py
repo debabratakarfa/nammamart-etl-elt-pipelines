@@ -99,7 +99,8 @@ def nammamart_etl_deb():
         from include.nammamart import etl
         return etl.report(context["run_id"])
 
-    @task(trigger_rule="all_done")
+    # retries=0: it fails on purpose to mark the run failed; retrying only delays the alert.
+    @task(trigger_rule="all_done", retries=0)
     def audit_run(**context):
         from include.nammamart import common, etl
         dag_run = context.get("dag_run")

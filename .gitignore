@@ -1,6 +1,18 @@
-# NammaMart assignment: add these lines to the project's .gitignore
+# NammaMart ETL & ELT: standalone Astro project
 
 # ---- Never commit ----
+# Astro CLI local state
+.astro/config.yaml.lock
+.astro/*.local.yml
+.astro/*.local.yaml
+.astro/standalone/
+.astro/worktrees/
+astro
+.venv
+airflow.db
+airflow.cfg
+webserver_config.py
+logs/
 # Warehouse files and run scratch space (rebuilt by the DAGs)
 include/warehouse_*.duckdb
 include/warehouse_*.duckdb.wal
@@ -29,3 +41,7 @@ __pycache__/
 !docs/screenshots/
 !scripts/
 !requirements.txt
+!Dockerfile
+!packages.txt
+!airflow_settings.yaml
+!.astro/config.yaml
